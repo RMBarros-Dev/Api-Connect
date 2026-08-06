@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Api-Connect.ApiService/Api-Connect.ApiService.csproj" />
+  <Project Path="Api-Connect.AppHost/Api-Connect.AppHost.csproj" />
+  <Project Path="Api-Connect.ServiceDefaults/Api-Connect.ServiceDefaults.csproj" />
+  <Project Path="Api-Connect.Web/Api-Connect.Web.csproj" />
+</Solution>

@@ -1,0 +1,5 @@
+{
+  "appHost": {
+    "path": "Api-Connect.AppHost/Api-Connect.AppHost.csproj"
+  }
+}
