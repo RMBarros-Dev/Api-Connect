@@ -1,50 +1,98 @@
-<div align="center">
-
-<p align="center">
-  <img src="assets/brand/project-mark.svg" alt="API — identidade visual do projeto" width="100%" />
-</p>
-
-
 # Api-Connect
 
-**Dois exemplos de APIs: Node.js/Express e .NET 10 com Aspire**
+<p align="center">
+  <img src="assets/brand/banner.svg" alt="Api-Connect — API architecture comparison lab" width="100%" />
+</p>
+<p align="center"><img src="assets/brand/logo.svg" alt="Api-Connect logo" width="76"/></p>
 
-[![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
-[![Express](https://img.shields.io/badge/Express-4-000000?logo=express&logoColor=white)](https://expressjs.com/)
-[![.NET](https://img.shields.io/badge/.NET-10-512BD4?logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/)
+<p align="center">
+  <strong>Laboratório comparativo de APIs e estruturas backend.</strong><br/>
+  Duas implementações independentes para estudo: Node.js/Express e .NET 10 com Aspire.
+</p>
 
-</div>
+<p align="center">
+  <img src="https://img.shields.io/badge/Node.js-18%2B-339933?logo=nodedotjs&logoColor=white" alt="Node.js"/>
+  <img src="https://img.shields.io/badge/Express-4-000000?logo=express&logoColor=white" alt="Express"/>
+  <img src="https://img.shields.io/badge/.NET-10-512BD4?logo=dotnet&logoColor=white" alt=".NET 10"/>
+  <img src="https://img.shields.io/badge/OpenAPI-Documented-6BA539?logo=openapiinitiative&logoColor=white" alt="OpenAPI"/>
+</p>
 
-## Sobre
+---
 
-O repositório reúne duas implementações independentes para estudo:
+## Objetivo
 
-- **Node.js + Express:** API REST de usuários com persistência em memória.
-- **.NET 10 + Aspire:** solução com um serviço de API de exemplo, um projeto Web e configurações compartilhadas.
+O Api-Connect reúne duas abordagens de implementação de serviços HTTP para estudar rotas, organização de código, contratos de API e ferramentas do ecossistema .NET.
 
-## Começar
+O projeto não é uma única aplicação híbrida: as implementações Node.js e .NET são trilhas independentes dentro do mesmo repositório.
 
-### Node.js e Express
+## Implementações
 
-Requer Node.js e npm. Na raiz do repositório:
+### Node.js + Express
+
+API demonstrativa de usuários com operações CRUD:
+
+| Método | Rota | Finalidade |
+| --- | --- | --- |
+| GET | `/` | Verificar se o serviço está ativo |
+| GET | `/users` | Listar usuários |
+| GET | `/users/:id` | Consultar usuário por identificador |
+| POST | `/users` | Cadastrar usuário |
+| PUT | `/users/:id` | Substituir dados do usuário |
+| DELETE | `/users/:id` | Remover usuário |
+
+A implementação utiliza persistência em memória. Os registros são perdidos quando o processo é reiniciado; portanto, ela serve como demonstração e não como armazenamento durável.
+
+### .NET 10 + Aspire
+
+Solução de exemplo dividida em:
+
+- `Api-Connect.ApiService/`: serviço ASP.NET Core com rotas de exemplo.
+- `Api-Connect.AppHost/`: inicialização e orquestração local.
+- `Api-Connect.ServiceDefaults/`: configurações compartilhadas.
+- `Api-Connect.Web/`: aplicação web Blazor e cliente de API.
+
+O serviço documenta as rotas `/` e `/weatherforecast`. O mapeamento OpenAPI está habilitado no ambiente de desenvolvimento.
+
+## Arquitetura
+
+```mermaid
+flowchart TB
+    subgraph Node["Trilha Node.js"]
+      NClient[HTTP Client] --> Express[Express]
+      Express --> Routes[Routes]
+      Routes --> Controller[Controllers]
+      Controller --> Memory[(In-memory data)]
+    end
+    subgraph DotNet["Trilha .NET"]
+      AppHost[.NET Aspire AppHost] --> API[ASP.NET Core API]
+      AppHost --> Web[Blazor Web]
+      Web --> API
+      API --> Defaults[ServiceDefaults]
+    end
+```
+
+## Requisitos
+
+- Node.js e npm para a trilha Express.
+- .NET 10 SDK para a trilha .NET.
+- .NET Aspire/Visual Studio é opcional para explorar a experiência integrada.
+
+## Executar a trilha Node.js
+
+Na raiz do repositório:
 
 ```bash
 npm install
 npm start
 ```
 
-A API inicia em [http://localhost:3000](http://localhost:3000). Para desenvolvimento com reinício automático, use `npm run dev`.
+A API é iniciada em `http://localhost:3000`. Para desenvolvimento com reinício automático, utilize:
 
-| Método | Rota | Ação | Respostas comuns |
-| --- | --- | --- | --- |
-| GET | `/` | Verifica se a API está ativa | 200 |
-| GET | `/users` | Lista usuários | 200 |
-| GET | `/users/:id` | Busca um usuário | 200, 400, 404 |
-| POST | `/users` | Cria um usuário | 201, 400 |
-| PUT | `/users/:id` | Substitui os dados de um usuário | 200, 400, 404 |
-| DELETE | `/users/:id` | Remove um usuário | 204, 400, 404 |
+```bash
+npm run dev
+```
 
-Exemplo de corpo para `POST /users`:
+Exemplo de payload para `POST /users`:
 
 ```json
 {
@@ -54,33 +102,55 @@ Exemplo de corpo para `POST /users`:
 }
 ```
 
-> Os usuários ficam em memória e são perdidos quando o servidor é reiniciado. Esta implementação é demonstrativa.
+Use somente dados fictícios nesta implementação demonstrativa.
 
-### .NET 10 e Aspire
+## Executar a trilha .NET
 
-Requer o .NET 10 SDK. Na raiz do repositório:
+Na raiz do repositório:
 
 ```bash
 dotnet restore Api-Connect.slnx
 dotnet run --project Api-Connect.AppHost/Api-Connect.AppHost.csproj
 ```
 
-O serviço de API inclui as rotas de exemplo `/` e `/weatherforecast`. O mapeamento OpenAPI é habilitado no ambiente de desenvolvimento.
+Consulte os logs do AppHost para os endereços locais atribuídos aos serviços.
 
-## Estrutura
+## Estrutura real do repositório
 
 ```text
 Api-Connect/
-├── Api-Connect.ApiService/       # API ASP.NET Core
-├── Api-Connect.AppHost/          # Inicialização com Aspire
-├── Api-Connect.ServiceDefaults/  # Configurações compartilhadas
-├── Api-Connect.Web/              # Aplicação Web
-├── src/                          # Rotas, controladores e middleware Node.js
-├── server.js                     # Entrada da API Express
+├── Api-Connect.ApiService/
+├── Api-Connect.AppHost/
+├── Api-Connect.ServiceDefaults/
+├── Api-Connect.Web/
+├── src/
+│   ├── controllers/
+│   ├── data/
+│   ├── middlewares/
+│   └── routes/
+├── assets/
+│   └── brand/
+│       ├── banner.svg
+│       ├── logo.svg
+│       └── project-mark.svg
+├── server.js
 ├── package.json
+├── package-lock.json
 └── Api-Connect.slnx
 ```
 
+## Boas práticas e limites
+
+- A API Express utiliza armazenamento em memória; não use para dados de produção.
+- Valide entradas e respostas HTTP ao ampliar as rotas.
+- Para persistência durável, integre um banco de dados e defina uma estratégia de migração.
+- Mantenha configurações e segredos fora do código versionado.
+- Não exponha endpoints de desenvolvimento sem revisar autenticação, autorização e CORS.
+
+## Identidade visual
+
+Consulte [docs/brand/README.md](docs/brand/README.md) para a paleta e as regras da marca.
+
 ## Licença
 
-Este projeto está sob a licença MIT. Consulte [LICENSE.txt](LICENSE.txt).
+Consulte [LICENSE.txt](LICENSE.txt).
