@@ -155,13 +155,6 @@ Api-Connect/
 └── Api-Connect.slnx
 ```
 
-## Documentação
-
-- [Identidade visual](docs/brand/README.md).
-- [Banner SVG](assets/brand/banner.svg) e [logotipo SVG](assets/brand/logo.svg).
-- Projetos .NET: diretórios `Api-Connect.ApiService/`, `Api-Connect.AppHost/`, `Api-Connect.ServiceDefaults/` e `Api-Connect.Web/`.
-- Trilha Express: diretório `src/`, arquivo `server.js` e scripts em `package.json`.
-
 ## Boas práticas e limites
 
 - A API Express utiliza armazenamento em memória; não use para dados de produção.
@@ -169,10 +162,6 @@ Api-Connect/
 - Para persistência durável, integre um banco de dados e defina uma estratégia de migração.
 - Mantenha configurações e segredos fora do código versionado.
 - Não exponha endpoints de desenvolvimento sem revisar autenticação, autorização e CORS.
-
-## Identidade visual
-
-Consulte [docs/brand/README.md](docs/brand/README.md) para a paleta e as regras da marca.
 
 ## Princípios de engenharia
 
@@ -184,6 +173,7 @@ Consulte [docs/brand/README.md](docs/brand/README.md) para a paleta e as regras 
 
 ## Documentação e licença
 
-Consulte [LICENSE.txt](LICENSE.txt).
-
-Consulte [LICENSE.txt](LICENSE.txt).
+- [Organização de arquivos](docs/project-structure.md).
+- [Identidade visual](docs/brand/README.md).
+- [Banner SVG](assets/brand/banner.svg) e [logotipo SVG](assets/brand/logo.svg).
+- [Licença MIT](LICENSE.txt).
