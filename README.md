@@ -1,5 +1,10 @@
 <div align="center">
 
+<p align="center">
+  <img src="assets/brand/project-mark.svg" alt="API — identidade visual do projeto" width="100%" />
+</p>
+
+
 # Api-Connect
 
 **Dois exemplos de APIs: Node.js/Express e .NET 10 com Aspire**
