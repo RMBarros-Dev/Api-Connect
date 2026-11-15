@@ -19,6 +19,18 @@
 
 ---
 
+## Índice
+
+- [Objetivo e área de aplicação](#objetivo)
+- [Implementações](#implementações)
+- [Arquitetura](#arquitetura)
+- [Metodologia](#metodologia-de-desenvolvimento)
+- [Requisitos](#requisitos)
+- [Execução](#executar-a-trilha-nodejs)
+- [Estrutura de arquivos](#estrutura-real-do-repositório)
+- [Boas práticas e limitações](#boas-práticas-e-limites)
+- [Documentação e licença](#documentação-e-licença)
+
 ## Objetivo
 
 O Api-Connect reúne duas abordagens de implementação de serviços HTTP para estudar rotas, organização de código, contratos de API e ferramentas do ecossistema .NET.
@@ -52,6 +64,10 @@ Solução de exemplo dividida em:
 - `Api-Connect.Web/`: aplicação web Blazor e cliente de API.
 
 O serviço documenta as rotas `/` e `/weatherforecast`. O mapeamento OpenAPI está habilitado no ambiente de desenvolvimento.
+
+## Metodologia de desenvolvimento
+
+As trilhas Node.js e .NET são mantidas separadas para permitir estudo e comparação de estruturas, rotas e ferramentas. Ao evoluir o laboratório, documente cada implementação isoladamente, mantenha exemplos com dados fictícios e valide os contratos HTTP sem misturar as dependências dos dois runtimes.
 
 ## Arquitetura
 
@@ -139,6 +155,13 @@ Api-Connect/
 └── Api-Connect.slnx
 ```
 
+## Documentação
+
+- [Identidade visual](docs/brand/README.md).
+- [Banner SVG](assets/brand/banner.svg) e [logotipo SVG](assets/brand/logo.svg).
+- Projetos .NET: diretórios `Api-Connect.ApiService/`, `Api-Connect.AppHost/`, `Api-Connect.ServiceDefaults/` e `Api-Connect.Web/`.
+- Trilha Express: diretório `src/`, arquivo `server.js` e scripts em `package.json`.
+
 ## Boas práticas e limites
 
 - A API Express utiliza armazenamento em memória; não use para dados de produção.
@@ -151,6 +174,16 @@ Api-Connect/
 
 Consulte [docs/brand/README.md](docs/brand/README.md) para a paleta e as regras da marca.
 
-## Licença
+## Princípios de engenharia
+
+- manter as duas implementações independentes e claramente identificadas;
+- documentar rotas, verbos HTTP, payloads e códigos de resposta;
+- não confundir persistência em memória com armazenamento durável;
+- usar configuração externa para segredos e ambientes;
+- evitar expor exemplos de desenvolvimento sem controles adicionais.
+
+## Documentação e licença
+
+Consulte [LICENSE.txt](LICENSE.txt).
 
 Consulte [LICENSE.txt](LICENSE.txt).
