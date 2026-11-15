@@ -21,7 +21,7 @@
 
 ## Índice
 
-- [Objetivo e área de aplicação](#objetivo)
+- [Objetivo e área de aplicação](#objetivo-e-área-de-aplicação)
 - [Implementações](#implementações)
 - [Arquitetura](#arquitetura)
 - [Metodologia](#metodologia-de-desenvolvimento)
@@ -31,7 +31,7 @@
 - [Boas práticas e limitações](#boas-práticas-e-limites)
 - [Documentação e licença](#documentação-e-licença)
 
-## Objetivo
+## Objetivo e área de aplicação
 
 O Api-Connect reúne duas abordagens de implementação de serviços HTTP para estudar rotas, organização de código, contratos de API e ferramentas do ecossistema .NET.
 
