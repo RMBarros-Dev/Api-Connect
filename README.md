@@ -19,7 +19,8 @@
 
 
 <p align="center">
-  [![CI](https://github.com/RMBarros-Dev/Api-Connect/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/RMBarros-Dev/Api-Connect/actions/workflows/ci.yml) [![CodeQL](https://github.com/RMBarros-Dev/Api-Connect/actions/workflows/codeql.yml/badge.svg?branch=master)](https://github.com/RMBarros-Dev/Api-Connect/actions/workflows/codeql.yml)
+  <a href="https://github.com/RMBarros-Dev/Api-Connect/actions/workflows/ci.yml"><img src="https://github.com/RMBarros-Dev/Api-Connect/actions/workflows/ci.yml/badge.svg?branch=master" alt="CI status" /></a>
+  <a href="https://github.com/RMBarros-Dev/Api-Connect/actions/workflows/codeql.yml"><img src="https://github.com/RMBarros-Dev/Api-Connect/actions/workflows/codeql.yml/badge.svg?branch=master" alt="CodeQL status" /></a>
 </p>
 
 ---
@@ -57,7 +58,7 @@ API demonstrativa de usuários com operações CRUD:
 | PUT | `/users/:id` | Substituir dados do usuário |
 | DELETE | `/users/:id` | Remover usuário |
 
-A implementação utiliza persistência em memória. Os registros são perdidos quando o processo é reiniciado; portanto, ela serve como demonstração e não como armazenamento durável.
+A implementação utiliza persistência em memória. Os registros são perdidos quando o processo é reiniciado; portanto, ela serve como demonstração e não como armazenamento durável. As rotas também não implementam autenticação ou autorização: não exponha esta trilha em produção. O parser JSON limita o corpo a 32 KB e as respostas de usuários usam `Cache-Control: no-store`.
 
 ### .NET 10 + Aspire
 

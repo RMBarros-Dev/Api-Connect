@@ -6,7 +6,7 @@ const errorHandler = require('./middlewares/errorHandler');
 const app = express();
 
 // Middlewares globais
-app.use(express.json());
+app.use(express.json({ limit: '32kb' }));
 
 // Healthcheck
 app.get('/', (req, res) => {
@@ -14,7 +14,11 @@ app.get('/', (req, res) => {
 });
 
 // Rotas de usuário montadas em /users
-app.use('/users', userRoutes);
+app.use('/users', (req, res, next) => {
+  // The sample API returns user records; prevent intermediaries and browsers caching them.
+  res.set('Cache-Control', 'no-store');
+  next();
+}, userRoutes);
 
 // Middleware global de erro - deve ficar por último
 app.use(errorHandler);
