@@ -15,6 +15,27 @@
   <a href="https://github.com/RMBarros-Dev/Api-Connect/actions/workflows/codeql.yml"><img src="https://github.com/RMBarros-Dev/Api-Connect/actions/workflows/codeql.yml/badge.svg?branch=master" alt="CodeQL status" /></a>
 </p>
 
+## Contents
+
+- [01 · Overview](#01--overview)
+- [02 · Purpose and Learning Context](#02--prposeandlearningcontext)
+- [03 · Implementation Tracks](#03--implementationtracks)
+- [04 · Node.js API Routes](#04--nodejsapirotes)
+- [05 · .NET 10 Service](#05--netservice)
+- [06 · Architecture](#06--architectre)
+- [07 · Technology Stack](#07--technologystack)
+- [08 · Requirements](#08--reqirements)
+- [09 · Run the Node.js Track](#09--rnthenodejstrack)
+- [10 · Run the .NET Track](#10--rnthenettrack)
+- [11 · Example Request Payload](#11--examplereqestpayload)
+- [12 · Data Storage and Persistence](#12--datastorageandpersistence)
+- [13 · Security and Operational Boundaries](#13--secrityandoperationalbondaries)
+- [14 · Quality and Validation](#14--qalityandvalidation)
+- [15 · Repository Structure](#15--repositorystrctre)
+- [16 · Development Methodology](#16--developmentmethodology)
+- [17 · Documentation and Engineering Principles](#17--docmentationandengineeringprinciples)
+- [18 · License and Attribution](#18--licenseandattribtion)
+
 ## 01 · Overview
 
 Api-Connect is a learning repository containing two independent HTTP service implementations: Node.js/Express and .NET 10 with .NET Aspire. It is a comparative lab, not one hybrid application.
