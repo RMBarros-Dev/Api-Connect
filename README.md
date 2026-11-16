@@ -17,6 +17,11 @@
   <img src="https://img.shields.io/badge/OpenAPI-Documented-6BA539?logo=openapiinitiative&logoColor=white" alt="OpenAPI"/>
 </p>
 
+
+<p align="center">
+  [![CI](https://github.com/RMBarros-Dev/Api-Connect/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/RMBarros-Dev/Api-Connect/actions/workflows/ci.yml) [![CodeQL](https://github.com/RMBarros-Dev/Api-Connect/actions/workflows/codeql.yml/badge.svg?branch=master)](https://github.com/RMBarros-Dev/Api-Connect/actions/workflows/codeql.yml)
+</p>
+
 ---
 
 ## Índice
