@@ -1,105 +1,112 @@
-# Api-Connect
+<p align="right"><strong>Idioma:</strong> <a href="README.md">Português (Brasil)</a> · <a href="README.en.md">English</a></p>
 
+<p align="center"><img src="assets/brand/banner.svg" alt="Api-Connect — laboratório de comparação de APIs" width="100%" /></p>
+<p align="center"><img src="assets/brand/logo.svg" alt="Logotipo Api-Connect" width="76" /></p>
+<h1 align="center">Api-Connect</h1>
+<p align="center"><strong>Laboratório comparativo de APIs HTTP e estruturas backend.</strong></p>
 <p align="center">
-  <img src="assets/brand/banner.svg" alt="Api-Connect — API architecture comparison lab" width="100%" />
+  <img src="https://img.shields.io/badge/Node.js-18%2B-339933?logo=nodedotjs&logoColor=white" alt="Node.js" />
+  <img src="https://img.shields.io/badge/Express-4-000000?logo=express&logoColor=white" alt="Express" />
+  <img src="https://img.shields.io/badge/.NET-10-512BD4?logo=dotnet&logoColor=white" alt=".NET 10" />
+  <img src="https://img.shields.io/badge/OpenAPI-Documented-6BA539?logo=openapiinitiative&logoColor=white" alt="OpenAPI" />
+  <a href="https://github.com/RMBarros-Dev/Api-Connect/actions/workflows/ci.yml"><img src="https://github.com/RMBarros-Dev/Api-Connect/actions/workflows/ci.yml/badge.svg?branch=master" alt="Status da CI" /></a>
+  <a href="https://github.com/RMBarros-Dev/Api-Connect/actions/workflows/codeql.yml"><img src="https://github.com/RMBarros-Dev/Api-Connect/actions/workflows/codeql.yml/badge.svg?branch=master" alt="Status do CodeQL" /></a>
 </p>
-<p align="center"><img src="assets/brand/logo.svg" alt="Api-Connect logo" width="76"/></p>
-
-<p align="center">
-  <strong>Laboratório comparativo de APIs e estruturas backend.</strong><br/>
-  Duas implementações independentes para estudo: Node.js/Express e .NET 10 com Aspire.
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Node.js-18%2B-339933?logo=nodedotjs&logoColor=white" alt="Node.js"/>
-  <img src="https://img.shields.io/badge/Express-4-000000?logo=express&logoColor=white" alt="Express"/>
-  <img src="https://img.shields.io/badge/.NET-10-512BD4?logo=dotnet&logoColor=white" alt=".NET 10"/>
-  <img src="https://img.shields.io/badge/OpenAPI-Documented-6BA539?logo=openapiinitiative&logoColor=white" alt="OpenAPI"/>
-</p>
-
-
-<p align="center">
-  <a href="https://github.com/RMBarros-Dev/Api-Connect/actions/workflows/ci.yml"><img src="https://github.com/RMBarros-Dev/Api-Connect/actions/workflows/ci.yml/badge.svg?branch=master" alt="CI status" /></a>
-  <a href="https://github.com/RMBarros-Dev/Api-Connect/actions/workflows/codeql.yml"><img src="https://github.com/RMBarros-Dev/Api-Connect/actions/workflows/codeql.yml/badge.svg?branch=master" alt="CodeQL status" /></a>
-</p>
-
----
 
 ## Índice
 
-- [Objetivo e área de aplicação](#objetivo-e-área-de-aplicação)
-- [Implementações](#implementações)
-- [Arquitetura](#arquitetura)
-- [Metodologia](#metodologia-de-desenvolvimento)
-- [Requisitos](#requisitos)
-- [Execução](#executar-a-trilha-nodejs)
-- [Estrutura de arquivos](#estrutura-real-do-repositório)
-- [Boas práticas e limitações](#boas-práticas-e-limites)
-- [Documentação e licença](#documentação-e-licença)
+- [01 · Visão geral](#01--visão-geral)
+- [02 · Objetivo e contexto](#02--objetivo-e-contexto)
+- [03 · Trilhas de implementação](#03--trilhas-de-implementação)
+- [04 · Rotas Node.js e Express](#04--rotas-nodejs-e-express)
+- [05 · Serviço .NET 10](#05--serviço-net-10)
+- [06 · Arquitetura](#06--arquitetura)
+- [07 · Tecnologias](#07--tecnologias)
+- [08 · Requisitos](#08--requisitos)
+- [09 · Executar a trilha Node.js](#09--executar-a-trilha-nodejs)
+- [10 · Executar a trilha .NET](#10--executar-a-trilha-net)
+- [11 · Exemplo de payload](#11--exemplo-de-payload)
+- [12 · Persistência e dados](#12--persistência-e-dados)
+- [13 · Segurança e limites operacionais](#13--segurança-e-limites-operacionais)
+- [14 · Qualidade e validação](#14--qualidade-e-validação)
+- [15 · Estrutura do repositório](#15--estrutura-do-repositório)
+- [16 · Metodologia de desenvolvimento](#16--metodologia-de-desenvolvimento)
+- [17 · Documentação e princípios](#17--documentação-e-princípios)
+- [18 · Licença e atribuição](#18--licença-e-atribuição)
 
-## Objetivo e área de aplicação
+## 01 · Visão geral
 
-O Api-Connect reúne duas abordagens de implementação de serviços HTTP para estudar rotas, organização de código, contratos de API e ferramentas do ecossistema .NET.
+O Api-Connect reúne duas implementações independentes de serviços HTTP: Node.js/Express e .NET 10 com .NET Aspire. É um laboratório comparativo, não uma única aplicação híbrida.
 
-O projeto não é uma única aplicação híbrida: as implementações Node.js e .NET são trilhas independentes dentro do mesmo repositório.
+## 02 · Objetivo e contexto
 
-## Implementações
+O projeto explora desenho de rotas, organização backend, contratos de API, comportamento HTTP e ferramentas de runtimes distintos. As duas trilhas permanecem separadas para permitir estudo e comparação sem misturar dependências.
 
-### Node.js + Express
+## 03 · Trilhas de implementação
 
-API demonstrativa de usuários com operações CRUD:
+| Trilha | Componentes principais | Objetivo |
+|---|---|---|
+| Node.js | Express, controllers, routes e dados em memória | Demonstrar endpoints CRUD de usuários. |
+| .NET | ASP.NET Core API, Aspire AppHost, ServiceDefaults e Blazor Web | Demonstrar serviço .NET e cliente web coordenados. |
+
+## 04 · Rotas Node.js e Express
 
 | Método | Rota | Finalidade |
-| --- | --- | --- |
-| GET | `/` | Verificar se o serviço está ativo |
-| GET | `/users` | Listar usuários |
-| GET | `/users/:id` | Consultar usuário por identificador |
-| POST | `/users` | Cadastrar usuário |
-| PUT | `/users/:id` | Substituir dados do usuário |
-| DELETE | `/users/:id` | Remover usuário |
+|---|---|---|
+| GET | `/` | Verificar se o serviço responde. |
+| GET | `/users` | Listar usuários. |
+| GET | `/users/:id` | Consultar usuário por identificador. |
+| POST | `/users` | Cadastrar usuário. |
+| PUT | `/users/:id` | Substituir dados do usuário. |
+| DELETE | `/users/:id` | Remover usuário. |
 
-A implementação utiliza persistência em memória. Os registros são perdidos quando o processo é reiniciado; portanto, ela serve como demonstração e não como armazenamento durável. As rotas também não implementam autenticação ou autorização: não exponha esta trilha em produção. O parser JSON limita o corpo a 32 KB e as respostas de usuários usam `Cache-Control: no-store`.
+O parser JSON limita o corpo a 32 KB. As respostas de usuários definem `Cache-Control: no-store`.
 
-### .NET 10 + Aspire
+## 05 · Serviço .NET 10
 
-Solução de exemplo dividida em:
-
+A solução .NET contém:
 - `Api-Connect.ApiService/`: serviço ASP.NET Core com rotas de exemplo.
 - `Api-Connect.AppHost/`: inicialização e orquestração local.
 - `Api-Connect.ServiceDefaults/`: configurações compartilhadas.
-- `Api-Connect.Web/`: aplicação web Blazor e cliente de API.
+- `Api-Connect.Web/`: aplicação Blazor Web e cliente da API.
 
 O serviço documenta as rotas `/` e `/weatherforecast`. O mapeamento OpenAPI está habilitado no ambiente de desenvolvimento.
 
-## Metodologia de desenvolvimento
-
-As trilhas Node.js e .NET são mantidas separadas para permitir estudo e comparação de estruturas, rotas e ferramentas. Ao evoluir o laboratório, documente cada implementação isoladamente, mantenha exemplos com dados fictícios e valide os contratos HTTP sem misturar as dependências dos dois runtimes.
-
-## Arquitetura
+## 06 · Arquitetura
 
 ```mermaid
 flowchart TB
-    subgraph Node["Trilha Node.js"]
-      NClient[HTTP Client] --> Express[Express]
-      Express --> Routes[Routes]
-      Routes --> Controller[Controllers]
-      Controller --> Memory[(In-memory data)]
-    end
-    subgraph DotNet["Trilha .NET"]
-      AppHost[.NET Aspire AppHost] --> API[ASP.NET Core API]
-      AppHost --> Web[Blazor Web]
-      Web --> API
-      API --> Defaults[ServiceDefaults]
-    end
+  subgraph Node["Trilha Node.js"]
+    Client[Cliente HTTP] --> Express[Express]
+    Express --> Routes[Routes]
+    Routes --> Controllers[Controllers]
+    Controllers --> Memory[(Dados em memória)]
+  end
+  subgraph DotNet["Trilha .NET"]
+    Host[.NET Aspire AppHost] --> API[ASP.NET Core API]
+    Host --> Web[Blazor Web]
+    Web --> API
+    API --> Defaults[ServiceDefaults]
+  end
 ```
 
-## Requisitos
+## 07 · Tecnologias
+
+| Trilha | Tecnologias |
+|---|---|
+| Node.js | Node.js 18+, npm, Express 4 e JavaScript |
+| .NET | .NET 10, ASP.NET Core, .NET Aspire e Blazor |
+| Documentação de API | OpenAPI no ambiente de desenvolvimento |
+| Validação | Workflows de CI e CodeQL do repositório |
+
+## 08 · Requisitos
 
 - Node.js e npm para a trilha Express.
-- .NET 10 SDK para a trilha .NET.
-- .NET Aspire/Visual Studio é opcional para explorar a experiência integrada.
+- SDK do .NET 10 para a trilha .NET.
+- Ferramentas .NET Aspire ou Visual Studio são opcionais para a experiência integrada.
+- Git para clonar o repositório.
 
-## Executar a trilha Node.js
+## 09 · Executar a trilha Node.js
 
 Na raiz do repositório:
 
@@ -108,25 +115,13 @@ npm install
 npm start
 ```
 
-A API é iniciada em `http://localhost:3000`. Para desenvolvimento com reinício automático, utilize:
+A API inicia em `http://localhost:3000`. Para reinicialização automática durante o desenvolvimento:
 
 ```bash
 npm run dev
 ```
 
-Exemplo de payload para `POST /users`:
-
-```json
-{
-  "nome": "Fulano",
-  "email": "fulano@example.com",
-  "cargo": "Desenvolvedor"
-}
-```
-
-Use somente dados fictícios nesta implementação demonstrativa.
-
-## Executar a trilha .NET
+## 10 · Executar a trilha .NET
 
 Na raiz do repositório:
 
@@ -135,9 +130,35 @@ dotnet restore Api-Connect.slnx
 dotnet run --project Api-Connect.AppHost/Api-Connect.AppHost.csproj
 ```
 
-Consulte os logs do AppHost para os endereços locais atribuídos aos serviços.
+Consulte os logs do AppHost para identificar os endereços locais dos serviços.
 
-## Estrutura real do repositório
+## 11 · Exemplo de payload
+
+Exemplo de corpo para `POST /users` na trilha Express:
+
+```json
+{
+  "nome": "Usuário de Exemplo",
+  "email": "usuario@example.com",
+  "cargo": "Desenvolvedor"
+}
+```
+
+Utilize somente dados sintéticos. Os nomes dos campos seguem o contrato da rota demonstrativa.
+
+## 12 · Persistência e dados
+
+A implementação Express mantém os registros em memória. Os dados são perdidos quando o processo reinicia; não se trata de persistência durável. O comportamento de armazenamento da trilha .NET deve ser verificado em sua própria implementação e configuração; não presuma que as duas trilhas compartilham um banco.
+
+## 13 · Segurança e limites operacionais
+
+A API demonstrativa Express não implementa autenticação ou autorização e não deve ser exposta como serviço de produção. Não utilize dados pessoais reais. Mantenha segredos fora do controle de versão. Antes de qualquer exposição pública, revise autenticação, autorização, CORS, limites de requisição, validação e logs.
+
+## 14 · Qualidade e validação
+
+Os workflows de CI e CodeQL são evidências automatizadas dos controles que efetivamente executam. Revise as etapas dos workflows e execute os builds Node.js e .NET localmente antes de depender dos resultados. Um workflow verde não comprova prontidão para produção.
+
+## 15 · Estrutura do repositório
 
 ```text
 Api-Connect/
@@ -150,36 +171,25 @@ Api-Connect/
 │   ├── data/
 │   ├── middlewares/
 │   └── routes/
-├── assets/
-│   └── brand/
-│       ├── banner.svg
-│       ├── logo.svg
-│       └── project-mark.svg
+├── assets/brand/
 ├── server.js
 ├── package.json
 ├── package-lock.json
 └── Api-Connect.slnx
 ```
 
-## Boas práticas e limites
+## 16 · Metodologia de desenvolvimento
 
-- A API Express utiliza armazenamento em memória; não use para dados de produção.
-- Valide entradas e respostas HTTP ao ampliar as rotas.
-- Para persistência durável, integre um banco de dados e defina uma estratégia de migração.
-- Mantenha configurações e segredos fora do código versionado.
-- Não exponha endpoints de desenvolvimento sem revisar autenticação, autorização e CORS.
+Mantenha as trilhas Node.js e .NET independentes e claramente identificadas. Documente rotas, métodos HTTP, payloads e códigos de resposta. Utilize exemplos sintéticos e valide cada trilha com seu próprio runtime e dependências.
 
-## Princípios de engenharia
-
-- manter as duas implementações independentes e claramente identificadas;
-- documentar rotas, verbos HTTP, payloads e códigos de resposta;
-- não confundir persistência em memória com armazenamento durável;
-- usar configuração externa para segredos e ambientes;
-- evitar expor exemplos de desenvolvimento sem controles adicionais.
-
-## Documentação e licença
+## 17 · Documentação e princípios
 
 - [Organização de arquivos](docs/project-structure.md).
 - [Identidade visual](docs/brand/README.md).
 - [Banner SVG](assets/brand/banner.svg) e [logotipo SVG](assets/brand/logo.svg).
-- [Licença MIT](LICENSE.txt).
+
+Preserve contratos de API claros, configuração externa de segredos, limites explícitos de armazenamento e salvaguardas para ambientes de desenvolvimento.
+
+## 18 · Licença e atribuição
+
+Consulte [LICENSE.txt](LICENSE.txt) para a licença MIT e seus termos aplicáveis.
