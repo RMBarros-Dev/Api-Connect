@@ -17,41 +17,48 @@
 
 ## Contents
 
-- [01 · Overview](#01--overview)
-- [02 · Purpose and Learning Context](#02--purpose-and-learning-context)
-- [03 · Implementation Tracks](#03--implementation-tracks)
-- [04 · Node.js API Routes](#04--nodejs-api-routes)
-- [05 · .NET 10 Service](#05--net-10-service)
-- [06 · Architecture](#06--architecture)
-- [07 · Technology Stack](#07--technology-stack)
-- [08 · Requirements](#08--requirements)
-- [09 · Run the Node.js Track](#09--run-the-nodejs-track)
-- [10 · Run the .NET Track](#10--run-the-net-track)
-- [11 · Example Request Payload](#11--example-request-payload)
-- [12 · Data Storage and Persistence](#12--data-storage-and-persistence)
-- [13 · Security and Operational Boundaries](#13--security-and-operational-boundaries)
-- [14 · Quality and Validation](#14--quality-and-validation)
-- [15 · Repository Structure](#15--repository-structure)
-- [16 · Development Methodology](#16--development-methodology)
-- [17 · Documentation and Engineering Principles](#17--documentation-and-engineering-principles)
-- [18 · License and Attribution](#18--license-and-attribution)
+- [01 · Context and project positioning](#01--context-and-project-positioning)
+- [02 · Live demonstration and visual references](#02--live-demonstration-and-visual-references)
+- [03 · Features and implementation status](#03--features-and-implementation-status)
+- [04 · System architecture](#04--system-architecture)
+- [05 · Technology stack](#05--technology-stack)
+- [06 · Directory structure](#06--directory-structure)
+- [07 · Prerequisites and installation](#07--prerequisites-and-installation)
+- [08 · Environment and data configuration](#08--environment-and-data-configuration)
+- [09 · User guide](#09--user-guide)
+- [10 · Testing and quality](#10--testing-and-quality)
+- [11 · Internationalization and localization](#11--internationalization-and-localization)
+- [12 · Deployment and infrastructure](#12--deployment-and-infrastructure)
+- [13 · Security and limitations](#13--security-and-limitations)
+- [14 · Additional documentation](#14--additional-documentation)
+- [15 · Contribution, license and credits](#15--contribution-license-and-credits)
 
-## 01 · Overview
+## 01 · Context and project positioning
+
+### Overview
 
 Api-Connect is a learning repository containing two independent HTTP service implementations: Node.js/Express and .NET 10 with .NET Aspire. It is a comparative lab, not one hybrid application.
 
-## 02 · Purpose and Learning Context
+### Purpose and Learning Context
 
 The project explores route design, backend organization, API contracts, HTTP behavior and tooling in different runtimes. The two tracks remain independent so their structures and dependencies can be studied separately.
 
-## 03 · Implementation Tracks
+## 02 · Live demonstration and visual references
+
+The repository does not declare publicly hosted endpoints. Demonstrate it locally by selecting one of the two independent tracks and following the corresponding commands in the user guide.
+
+## 03 · Features and implementation status
+
+The status presented here reflects the scope described in the README and the material referenced by the repository. It is not, by itself, operational sign-off or independent validation.
+
+### Implementation Tracks
 
 | Track | Main components | Purpose |
 |---|---|---|
 | Node.js | Express, controllers, routes and in-memory data | Demonstrate CRUD-style user endpoints. |
 | .NET | ASP.NET Core API, Aspire AppHost, ServiceDefaults and Blazor Web | Demonstrate a coordinated .NET service and web client. |
 
-## 04 · Node.js API Routes
+### Node.js API Routes
 
 | Method | Route | Purpose |
 |---|---|---|
@@ -64,7 +71,7 @@ The project explores route design, backend organization, API contracts, HTTP beh
 
 The JSON body parser is limited to 32 KB. User responses set `Cache-Control: no-store`.
 
-## 05 · .NET 10 Service
+### .NET 10 Service
 
 The .NET solution contains:
 - `Api-Connect.ApiService/`: ASP.NET Core service with example routes.
@@ -74,7 +81,23 @@ The .NET solution contains:
 
 The service documents `/` and `/weatherforecast`. OpenAPI mapping is enabled in the development environment.
 
-## 06 · Architecture
+### Example Request Payload
+
+Example body for `POST /users` in the Express track:
+
+```json
+{
+  "nome": "Example User",
+  "email": "user@example.com",
+  "cargo": "Developer"
+}
+```
+
+Use synthetic data only. The sample payload uses the field names implemented by the demonstration endpoint.
+
+## 04 · System architecture
+
+### Architecture
 
 ```mermaid
 flowchart TB
@@ -92,7 +115,9 @@ flowchart TB
   end
 ```
 
-## 07 · Technology Stack
+## 05 · Technology stack
+
+### Technology Stack
 
 | Track | Technologies |
 |---|---|
@@ -101,66 +126,9 @@ flowchart TB
 | API documentation | OpenAPI in the development environment |
 | Validation | Repository CI and CodeQL workflows |
 
-## 08 · Requirements
+## 06 · Directory structure
 
-- Node.js and npm for the Express track.
-- .NET 10 SDK for the .NET track.
-- .NET Aspire tooling or Visual Studio is optional for the integrated experience.
-- Git to clone the repository.
-
-## 09 · Run the Node.js Track
-
-From the repository root:
-
-```bash
-npm install
-npm start
-```
-
-The API starts at `http://localhost:3000`. For automatic restart during development:
-
-```bash
-npm run dev
-```
-
-## 10 · Run the .NET Track
-
-From the repository root:
-
-```bash
-dotnet restore Api-Connect.slnx
-dotnet run --project Api-Connect.AppHost/Api-Connect.AppHost.csproj
-```
-
-Use AppHost logs to identify the local service addresses.
-
-## 11 · Example Request Payload
-
-Example body for `POST /users` in the Express track:
-
-```json
-{
-  "nome": "Example User",
-  "email": "user@example.com",
-  "cargo": "Developer"
-}
-```
-
-Use synthetic data only. The sample payload uses the field names implemented by the demonstration endpoint.
-
-## 12 · Data Storage and Persistence
-
-The Express implementation stores records in memory. Data is lost when the process restarts; this is not durable storage. The .NET track's persistence behavior must be assessed from its own implementation and configuration; do not assume both tracks share a database.
-
-## 13 · Security and Operational Boundaries
-
-The Express demonstration does not implement authentication or authorization and must not be exposed as a production service. Do not use real personal data. Keep secrets outside version control. Before public exposure, review authentication, authorization, CORS, rate limits, validation and logging.
-
-## 14 · Quality and Validation
-
-Use the repository's CI and CodeQL workflows as automated evidence. Review the exact workflow steps and run the relevant Node.js and .NET builds locally before relying on a result. A green workflow does not establish production readiness.
-
-## 15 · Repository Structure
+### Repository Structure
 
 ```text
 Api-Connect/
@@ -180,11 +148,74 @@ Api-Connect/
 └── Api-Connect.slnx
 ```
 
-## 16 · Development Methodology
+## 07 · Prerequisites and installation
 
-Keep the Node.js and .NET tracks independent and clearly labeled. Document routes, HTTP methods, payloads and response codes. Use synthetic examples and validate each track with its own runtime and dependencies.
+### Requirements
 
-## 17 · Documentation and Engineering Principles
+- Node.js and npm for the Express track.
+- .NET 10 SDK for the .NET track.
+- .NET Aspire tooling or Visual Studio is optional for the integrated experience.
+- Git to clone the repository.
+
+## 08 · Environment and data configuration
+
+This section consolidates the documented configuration and storage information. Sensitive values must be supplied by the runtime environment, never committed.
+
+### Data Storage and Persistence
+
+The Express implementation stores records in memory. Data is lost when the process restarts; this is not durable storage. The .NET track's persistence behavior must be assessed from its own implementation and configuration; do not assume both tracks share a database.
+
+## 09 · User guide
+
+### Run the Node.js Track
+
+From the repository root:
+
+```bash
+npm install
+npm start
+```
+
+The API starts at `http://localhost:3000`. For automatic restart during development:
+
+```bash
+npm run dev
+```
+
+### Run the .NET Track
+
+From the repository root:
+
+```bash
+dotnet restore Api-Connect.slnx
+dotnet run --project Api-Connect.AppHost/Api-Connect.AppHost.csproj
+```
+
+Use AppHost logs to identify the local service addresses.
+
+## 10 · Testing and quality
+
+### Quality and Validation
+
+Use the repository's CI and CodeQL workflows as automated evidence. Review the exact workflow steps and run the relevant Node.js and .NET builds locally before relying on a result. A green workflow does not establish production readiness.
+
+## 11 · Internationalization and localization
+
+No internationalization/localization pipeline is documented in this repository. Support for languages or regional variants must not be inferred.
+
+## 12 · Deployment and infrastructure
+
+The current documentation does not identify a production provider or published environment. Deployment must be defined and validated before availability is claimed.
+
+## 13 · Security and limitations
+
+### Security and Operational Boundaries
+
+The Express demonstration does not implement authentication or authorization and must not be exposed as a production service. Do not use real personal data. Keep secrets outside version control. Before public exposure, review authentication, authorization, CORS, rate limits, validation and logging.
+
+## 14 · Additional documentation
+
+### Documentation and Engineering Principles
 
 - [Project structure](docs/project-structure.md).
 - [Brand guide](docs/brand/README.md).
@@ -192,6 +223,14 @@ Keep the Node.js and .NET tracks independent and clearly labeled. Document route
 
 Preserve clear API contracts, external configuration for secrets, explicit storage boundaries and development-only safeguards.
 
-## 18 · License and Attribution
+## 15 · Contribution, license and credits
+
+When proposing changes, describe the goal, affected files and validation performed. Prefer small, reviewable changes; include tests when behavior changes and never submit credentials, tokens or personal data.
+
+### Development Methodology
+
+Keep the Node.js and .NET tracks independent and clearly labeled. Document routes, HTTP methods, payloads and response codes. Use synthetic examples and validate each track with its own runtime and dependencies.
+
+### License and Attribution
 
 See [LICENSE.txt](LICENSE.txt) for the MIT license and applicable terms.
