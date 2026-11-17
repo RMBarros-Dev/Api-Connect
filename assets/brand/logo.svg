@@ -1,8 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
-<title id="title">API Connect — símbolo</title><desc id="desc">Símbolo vetorial de identidade visual do projeto API Connect.</desc>
-<defs><linearGradient id="ring" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#22D3EE"/><stop offset="1" stop-color="#A78BFA"/></linearGradient><radialGradient id="surface"><stop stop-color="#07162E"/><stop offset="1" stop-color="#020817"/></radialGradient></defs>
-<circle cx="128" cy="128" r="122" fill="url(#ring)"/><circle cx="128" cy="128" r="113" fill="url(#surface)" stroke="#1E3A5F" stroke-width="2"/>
-<g transform="translate(0 0)"><path d="M128 45 194 83v76l-66 38-66-38V83Z" fill="none" stroke="#A78BFA" stroke-width="10"/><circle cx="128" cy="121" r="29" fill="#22D3EE" opacity=".2" stroke="#22D3EE" stroke-width="7"/><path d="M93 121h-24m118 0h-24M128 91V68m0 106v-24" stroke="#22D3EE" stroke-width="8" stroke-linecap="round"/><path d="m114 109-13 12 13 12m28-24 13 12-13 12" fill="none" stroke="#A78BFA" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></g>
-<path d="M50 218Q128 239 206 218" fill="none" stroke="#22D3EE" stroke-width="4" stroke-linecap="round"/>
-<text x="128" y="238" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#F8FAFC" letter-spacing="1">API CONNECT</text>
+<title id="title">Api-Connect — símbolo</title><desc id="desc">Símbolo geométrico de integração de APIs, com dois fluxos conectados por um núcleo central.</desc>
+<rect x="8" y="8" width="240" height="240" rx="54" fill="#101820"/>
+<path d="M58 70H91L116 95V161L91 186H58" fill="none" stroke="#F4F1EA" stroke-width="13" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M198 70H165L140 95V161L165 186H198" fill="none" stroke="#F4F1EA" stroke-width="13" stroke-linecap="square" stroke-linejoin="miter"/>
+<path d="M82 128H174" stroke="#39C6C8" stroke-width="10" stroke-linecap="round"/>
+<circle cx="82" cy="128" r="10" fill="#F2A65A"/><circle cx="174" cy="128" r="10" fill="#F2A65A"/>
+<rect x="119" y="111" width="18" height="34" rx="5" fill="#39C6C8"/>
+<path d="M128 38V57M128 199V218" stroke="#39C6C8" stroke-width="5" stroke-linecap="round"/>
 </svg>
