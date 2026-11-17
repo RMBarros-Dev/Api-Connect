@@ -3,7 +3,8 @@
 <p align="center"><img src="assets/brand/banner.svg" alt="Api-Connect API architecture comparison lab" width="100%" /></p>
 <p align="center"><img src="assets/brand/logo.svg" alt="Api-Connect logo" width="76" /></p>
 <h1 align="center">Api-Connect</h1>
-<p align="center"><strong>Comparative backend and HTTP API learning lab.</strong></p>
+<p align="center"><strong>Two stacks. One API lab.</strong></p>
+<p align="center">A practical comparison of HTTP services, contracts and backend architecture.</p>
 <p align="center">
   <img src="https://img.shields.io/badge/Node.js-18%2B-339933?logo=nodedotjs&logoColor=white" alt="Node.js" />
   <img src="https://img.shields.io/badge/Express-4-000000?logo=express&logoColor=white" alt="Express" />
