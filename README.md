@@ -15,41 +15,48 @@
 
 ## Índice
 
-- [01 · Visão geral](#01--visão-geral)
-- [02 · Objetivo e contexto](#02--objetivo-e-contexto)
-- [03 · Trilhas de implementação](#03--trilhas-de-implementação)
-- [04 · Rotas Node.js e Express](#04--rotas-nodejs-e-express)
-- [05 · Serviço .NET 10](#05--serviço-net-10)
-- [06 · Arquitetura](#06--arquitetura)
-- [07 · Tecnologias](#07--tecnologias)
-- [08 · Requisitos](#08--requisitos)
-- [09 · Executar a trilha Node.js](#09--executar-a-trilha-nodejs)
-- [10 · Executar a trilha .NET](#10--executar-a-trilha-net)
-- [11 · Exemplo de payload](#11--exemplo-de-payload)
-- [12 · Persistência e dados](#12--persistência-e-dados)
-- [13 · Segurança e limites operacionais](#13--segurança-e-limites-operacionais)
-- [14 · Qualidade e validação](#14--qualidade-e-validação)
-- [15 · Estrutura do repositório](#15--estrutura-do-repositório)
-- [16 · Metodologia de desenvolvimento](#16--metodologia-de-desenvolvimento)
-- [17 · Documentação e princípios](#17--documentação-e-princípios)
-- [18 · Licença e atribuição](#18--licença-e-atribuição)
+- [01 · Contexto e posicionamento](#01--contexto-e-posicionamento)
+- [02 · Demonstração real e referências visuais](#02--demonstracao-real-e-referencias-visuais)
+- [03 · Funcionalidades e estado de implementação](#03--funcionalidades-e-estado-de-implementacao)
+- [04 · Arquitetura geral](#04--arquitetura-geral)
+- [05 · Stack tecnológica](#05--stack-tecnologica)
+- [06 · Estrutura de diretórios](#06--estrutura-de-diretorios)
+- [07 · Pré-requisitos e instalação](#07--pre-requisitos-e-instalacao)
+- [08 · Configuração de ambiente e dados](#08--configuracao-de-ambiente-e-dados)
+- [09 · Guia de utilização](#09--guia-de-utilizacao)
+- [10 · Testes e qualidade](#10--testes-e-qualidade)
+- [11 · Internacionalização e localização](#11--internacionalizacao-e-localizacao)
+- [12 · Deploy e infraestrutura](#12--deploy-e-infraestrutura)
+- [13 · Segurança e limitações](#13--seguranca-e-limitacoes)
+- [14 · Documentação complementar](#14--documentacao-complementar)
+- [15 · Contribuição, licença e créditos](#15--contribuicao-licenca-e-creditos)
 
-## 01 · Visão geral
+## 01 · Contexto e posicionamento
+
+### Visão geral
 
 O Api-Connect reúne duas implementações independentes de serviços HTTP: Node.js/Express e .NET 10 com .NET Aspire. É um laboratório comparativo, não uma única aplicação híbrida.
 
-## 02 · Objetivo e contexto
+### Objetivo e contexto
 
 O projeto explora desenho de rotas, organização backend, contratos de API, comportamento HTTP e ferramentas de runtimes distintos. As duas trilhas permanecem separadas para permitir estudo e comparação sem misturar dependências.
 
-## 03 · Trilhas de implementação
+## 02 · Demonstração real e referências visuais
+
+O repositório não declara endpoints públicos hospedados. A demonstração deve ser feita localmente, selecionando uma das duas trilhas independentes e seguindo os comandos correspondentes no guia de utilização.
+
+## 03 · Funcionalidades e estado de implementação
+
+O estado apresentado nesta seção corresponde ao escopo descrito no README e no material referenciado pelo repositório. Não equivale, por si só, a homologação operacional ou validação independente.
+
+### Trilhas de implementação
 
 | Trilha | Componentes principais | Objetivo |
 |---|---|---|
 | Node.js | Express, controllers, routes e dados em memória | Demonstrar endpoints CRUD de usuários. |
 | .NET | ASP.NET Core API, Aspire AppHost, ServiceDefaults e Blazor Web | Demonstrar serviço .NET e cliente web coordenados. |
 
-## 04 · Rotas Node.js e Express
+### Rotas Node.js e Express
 
 | Método | Rota | Finalidade |
 |---|---|---|
@@ -62,7 +69,7 @@ O projeto explora desenho de rotas, organização backend, contratos de API, com
 
 O parser JSON limita o corpo a 32 KB. As respostas de usuários definem `Cache-Control: no-store`.
 
-## 05 · Serviço .NET 10
+### Serviço .NET 10
 
 A solução .NET contém:
 - `Api-Connect.ApiService/`: serviço ASP.NET Core com rotas de exemplo.
@@ -72,7 +79,23 @@ A solução .NET contém:
 
 O serviço documenta as rotas `/` e `/weatherforecast`. O mapeamento OpenAPI está habilitado no ambiente de desenvolvimento.
 
-## 06 · Arquitetura
+### Exemplo de payload
+
+Exemplo de corpo para `POST /users` na trilha Express:
+
+```json
+{
+  "nome": "Usuário de Exemplo",
+  "email": "usuario@example.com",
+  "cargo": "Desenvolvedor"
+}
+```
+
+Utilize somente dados sintéticos. Os nomes dos campos seguem o contrato da rota demonstrativa.
+
+## 04 · Arquitetura geral
+
+### Arquitetura
 
 ```mermaid
 flowchart TB
@@ -90,7 +113,9 @@ flowchart TB
   end
 ```
 
-## 07 · Tecnologias
+## 05 · Stack tecnológica
+
+### Tecnologias
 
 | Trilha | Tecnologias |
 |---|---|
@@ -99,66 +124,9 @@ flowchart TB
 | Documentação de API | OpenAPI no ambiente de desenvolvimento |
 | Validação | Workflows de CI e CodeQL do repositório |
 
-## 08 · Requisitos
+## 06 · Estrutura de diretórios
 
-- Node.js e npm para a trilha Express.
-- SDK do .NET 10 para a trilha .NET.
-- Ferramentas .NET Aspire ou Visual Studio são opcionais para a experiência integrada.
-- Git para clonar o repositório.
-
-## 09 · Executar a trilha Node.js
-
-Na raiz do repositório:
-
-```bash
-npm install
-npm start
-```
-
-A API inicia em `http://localhost:3000`. Para reinicialização automática durante o desenvolvimento:
-
-```bash
-npm run dev
-```
-
-## 10 · Executar a trilha .NET
-
-Na raiz do repositório:
-
-```bash
-dotnet restore Api-Connect.slnx
-dotnet run --project Api-Connect.AppHost/Api-Connect.AppHost.csproj
-```
-
-Consulte os logs do AppHost para identificar os endereços locais dos serviços.
-
-## 11 · Exemplo de payload
-
-Exemplo de corpo para `POST /users` na trilha Express:
-
-```json
-{
-  "nome": "Usuário de Exemplo",
-  "email": "usuario@example.com",
-  "cargo": "Desenvolvedor"
-}
-```
-
-Utilize somente dados sintéticos. Os nomes dos campos seguem o contrato da rota demonstrativa.
-
-## 12 · Persistência e dados
-
-A implementação Express mantém os registros em memória. Os dados são perdidos quando o processo reinicia; não se trata de persistência durável. O comportamento de armazenamento da trilha .NET deve ser verificado em sua própria implementação e configuração; não presuma que as duas trilhas compartilham um banco.
-
-## 13 · Segurança e limites operacionais
-
-A API demonstrativa Express não implementa autenticação ou autorização e não deve ser exposta como serviço de produção. Não utilize dados pessoais reais. Mantenha segredos fora do controle de versão. Antes de qualquer exposição pública, revise autenticação, autorização, CORS, limites de requisição, validação e logs.
-
-## 14 · Qualidade e validação
-
-Os workflows de CI e CodeQL são evidências automatizadas dos controles que efetivamente executam. Revise as etapas dos workflows e execute os builds Node.js e .NET localmente antes de depender dos resultados. Um workflow verde não comprova prontidão para produção.
-
-## 15 · Estrutura do repositório
+### Estrutura do repositório
 
 ```text
 Api-Connect/
@@ -178,11 +146,74 @@ Api-Connect/
 └── Api-Connect.slnx
 ```
 
-## 16 · Metodologia de desenvolvimento
+## 07 · Pré-requisitos e instalação
 
-Mantenha as trilhas Node.js e .NET independentes e claramente identificadas. Documente rotas, métodos HTTP, payloads e códigos de resposta. Utilize exemplos sintéticos e valide cada trilha com seu próprio runtime e dependências.
+### Requisitos
 
-## 17 · Documentação e princípios
+- Node.js e npm para a trilha Express.
+- SDK do .NET 10 para a trilha .NET.
+- Ferramentas .NET Aspire ou Visual Studio são opcionais para a experiência integrada.
+- Git para clonar o repositório.
+
+## 08 · Configuração de ambiente e dados
+
+Esta seção reúne as informações documentadas sobre configuração e armazenamento. Variáveis sensíveis devem ser fornecidas pelo ambiente de execução, nunca commitadas.
+
+### Persistência e dados
+
+A implementação Express mantém os registros em memória. Os dados são perdidos quando o processo reinicia; não se trata de persistência durável. O comportamento de armazenamento da trilha .NET deve ser verificado em sua própria implementação e configuração; não presuma que as duas trilhas compartilham um banco.
+
+## 09 · Guia de utilização
+
+### Executar a trilha Node.js
+
+Na raiz do repositório:
+
+```bash
+npm install
+npm start
+```
+
+A API inicia em `http://localhost:3000`. Para reinicialização automática durante o desenvolvimento:
+
+```bash
+npm run dev
+```
+
+### Executar a trilha .NET
+
+Na raiz do repositório:
+
+```bash
+dotnet restore Api-Connect.slnx
+dotnet run --project Api-Connect.AppHost/Api-Connect.AppHost.csproj
+```
+
+Consulte os logs do AppHost para identificar os endereços locais dos serviços.
+
+## 10 · Testes e qualidade
+
+### Qualidade e validação
+
+Os workflows de CI e CodeQL são evidências automatizadas dos controles que efetivamente executam. Revise as etapas dos workflows e execute os builds Node.js e .NET localmente antes de depender dos resultados. Um workflow verde não comprova prontidão para produção.
+
+## 11 · Internacionalização e localização
+
+Não há pipeline de internacionalização/localização documentado neste repositório. Não se deve inferir suporte a idiomas ou variantes regionais.
+
+## 12 · Deploy e infraestrutura
+
+A documentação atual não identifica um provedor ou ambiente de produção publicado. O processo de deploy precisa ser definido e validado antes de qualquer afirmação de disponibilidade.
+
+## 13 · Segurança e limitações
+
+### Segurança e limites operacionais
+
+A API demonstrativa Express não implementa autenticação ou autorização e não deve ser exposta como serviço de produção. Não utilize dados pessoais reais. Mantenha segredos fora do controle de versão. Antes de qualquer exposição pública, revise autenticação, autorização, CORS, limites de requisição, validação e logs.
+
+## 14 · Documentação complementar
+
+### Documentação e princípios
 
 - [Organização de arquivos](docs/project-structure.md).
 - [Identidade visual](docs/brand/README.md).
@@ -190,6 +221,14 @@ Mantenha as trilhas Node.js e .NET independentes e claramente identificadas. Doc
 
 Preserve contratos de API claros, configuração externa de segredos, limites explícitos de armazenamento e salvaguardas para ambientes de desenvolvimento.
 
-## 18 · Licença e atribuição
+## 15 · Contribuição, licença e créditos
+
+Ao propor alterações, descreva o objetivo, os arquivos afetados e a validação realizada. Prefira mudanças pequenas e revisáveis; inclua testes quando alterar comportamento e nunca envie credenciais, tokens ou dados pessoais.
+
+### Metodologia de desenvolvimento
+
+Mantenha as trilhas Node.js e .NET independentes e claramente identificadas. Documente rotas, métodos HTTP, payloads e códigos de resposta. Utilize exemplos sintéticos e valide cada trilha com seu próprio runtime e dependências.
+
+### Licença e atribuição
 
 Consulte [LICENSE.txt](LICENSE.txt) para a licença MIT e seus termos aplicáveis.
