@@ -1,11 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="720" height="220" viewBox="0 0 720 220" role="img" aria-labelledby="title desc">
-<title id="title">API — CONNECT LAB</title><desc id="desc">Identidade visual do projeto Api-Connect, com símbolo vetorial e paleta própria.</desc>
-<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0F172A"/><stop offset="1" stop-color="#0B1220"/></linearGradient><linearGradient id="a" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#38BDF8"/><stop offset="1" stop-color="#FFFFFF"/></linearGradient><pattern id="g" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#fff" stroke-opacity=".06"/></pattern></defs>
-<rect width="720" height="220" rx="22" fill="url(#bg)"/><rect width="720" height="220" rx="22" fill="url(#g)"/>
-<circle cx="112" cy="110" r="72" fill="#fff" fill-opacity=".045" stroke="#38BDF8" stroke-opacity=".3" stroke-width="2"/>
-<path d='M25 25h-7v30h7M55 25h7v30h-7M34 48l12-16' fill='none' stroke='url(#a)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/><circle cx='40' cy='40' r='25' fill='none' stroke='#fff' stroke-opacity='.2' stroke-width='2'/>
-<path d="M220 42v136" stroke="#38BDF8" stroke-opacity=".55" stroke-width="3"/>
-<text x="258" y="105" fill="#fff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="36" font-weight="750" letter-spacing="2">API</text>
-<text x="260" y="139" fill="#38BDF8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="700" letter-spacing="4">CONNECT LAB</text>
-<text x="260" y="171" fill="#CBD5E1" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12">PROJECT IDENTITY • RM BARROS DEV</text>
+<title id="title">Api-Connect — project mark</title><desc id="desc">Assinatura horizontal com símbolo de integração de APIs e nome do laboratório.</desc>
+<rect width="720" height="220" rx="24" fill="#101820"/>
+<rect x="28" y="28" width="164" height="164" rx="36" fill="#1D2B34" stroke="#39C6C8" stroke-width="2"/>
+<path d="M70 72H92L112 92V128L92 148H70M150 72H128L108 92V128L128 148H150" fill="none" stroke="#F4F1EA" stroke-width="9" stroke-linejoin="miter"/><path d="M83 110H137" stroke="#39C6C8" stroke-width="8" stroke-linecap="round"/><circle cx="83" cy="110" r="7" fill="#F2A65A"/><circle cx="137" cy="110" r="7" fill="#F2A65A"/>
+<path d="M230 44V176" stroke="#39C6C8" stroke-width="3" opacity=".7"/>
+<text x="270" y="100" fill="#F4F1EA" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="42" font-weight="800">Api-Connect</text>
+<text x="272" y="135" fill="#39C6C8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="700" letter-spacing="3">API ENGINEERING LAB</text>
+<text x="272" y="165" fill="#AAB8BF" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13">NODE.JS / EXPRESS  ·  .NET 10 / ASPIRE</text>
 </svg>
