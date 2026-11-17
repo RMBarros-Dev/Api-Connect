@@ -1,25 +1,39 @@
 # Diretrizes de identidade visual — Api-Connect
 
-## Conceito
+## Posicionamento
 
-Identidade abstract tech para arquitetura digital, integração entre serviços e interoperabilidade. O emblema usa estruturas geométricas conectadas para representar APIs e comunicação entre componentes.
+Api-Connect é um laboratório comparativo de implementações HTTP independentes em Node.js/Express e .NET 10 com .NET Aspire. A identidade comunica engenharia de APIs, contratos HTTP e integração entre componentes — não uma plataforma comercial ou um gateway de produção.
 
-## Paleta aplicada
+## Conceito visual
+
+O símbolo utiliza duas estruturas espelhadas, inspiradas em delimitadores de código, ligadas por um eixo central. Os dois lados representam as trilhas tecnológicas independentes; o núcleo representa o contrato e a comunicação HTTP que podem ser estudados em ambas.
+
+## Paleta oficial
 
 | Token | HEX | Aplicação |
 | --- | --- | --- |
-| Preto azulado | `#090B14` | Fundo principal |
-| Azul profundo | `#11172A` | Superfícies e profundidade |
-| Azul elétrico | `#368BFF` | Conexões e estrutura |
-| Violeta | `#9257F5` | Destaques e camadas |
-| Branco frio | `#F2F5FF` | Texto e contraste |
+| Grafite azulado | `#101820` | Fundo e base institucional |
+| Ardósia profunda | `#1D2B34` | Superfícies e profundidade |
+| Ciano técnico | `#39C6C8` | Conexões, linhas e ênfase |
+| Âmbar | `#F2A65A` | Pontos de entrada/saída e chamadas |
+| Marfim | `#F4F1EA` | Texto e contraste |
+| Cinza mineral | `#AAB8BF` | Texto secundário e metadados |
 
-## Ativos oficiais
+## Ativos
 
-- `assets/brand/logo.svg`: emblema vetorial de arquitetura conectada.
-- `assets/brand/banner.svg`: banner horizontal editorial para README e apresentações.
-- `assets/brand/project-mark.svg`: marca anterior preservada para compatibilidade.
+- `assets/brand/logo.svg`: símbolo principal para fundos escuros.
+- `assets/brand/logo-light.svg`: símbolo para fundos claros.
+- `assets/brand/banner.svg`: banner horizontal do repositório.
+- `assets/brand/project-mark.svg`: assinatura horizontal institucional.
 
-## Aplicação
+## Regras de aplicação
 
-Preservar proporções, contraste e área de respiro. Utilizar os SVGs locais do repositório e não alterar individualmente as cores dos ativos.
+- Preservar proporções, cores e área de respiro dos SVGs.
+- Priorizar os arquivos locais do repositório; não reconstruir o símbolo com emojis ou caracteres.
+- Em fundos claros, utilizar `logo-light.svg`; em fundos escuros, utilizar `logo.svg`.
+- Não associar a identidade a um gateway, serviço hospedado ou produto de produção.
+- A marca identifica um laboratório de estudo e comparação; não implica certificação ou afiliação às plataformas Node.js, .NET ou OpenAPI.
+
+## Assinatura
+
+**Duas stacks. Um laboratório de APIs.**
