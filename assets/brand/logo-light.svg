@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+<title id="title">Api-Connect — símbolo para fundo claro</title><desc id="desc">Símbolo escuro de integração de APIs com fluxos ciano e pontos âmbar.</desc>
+<rect x="8" y="8" width="240" height="240" rx="54" fill="#F4F1EA" stroke="#D9D5CA" stroke-width="2"/>
+<path d="M58 70H91L116 95V161L91 186H58M198 70H165L140 95V161L165 186H198" fill="none" stroke="#101820" stroke-width="13" stroke-linejoin="miter"/>
+<path d="M82 128H174" stroke="#15999C" stroke-width="10" stroke-linecap="round"/><circle cx="82" cy="128" r="10" fill="#C47A35"/><circle cx="174" cy="128" r="10" fill="#C47A35"/><rect x="119" y="111" width="18" height="34" rx="5" fill="#15999C"/>
+<path d="M128 38V57M128 199V218" stroke="#15999C" stroke-width="5" stroke-linecap="round"/>
+</svg>
