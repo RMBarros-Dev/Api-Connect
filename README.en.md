@@ -97,7 +97,7 @@ flowchart TB
 
 | Track | Technologies |
 |---|---|
-| Node.js | Node.js 18+, npm, Express 4 and JavaScript |
+| Node.js | Node.js 18+, npm, Express 5 and JavaScript |
 | .NET | .NET 10, ASP.NET Core, .NET Aspire and Blazor |
 | API documentation | OpenAPI in the development environment |
 | Validation | Repository CI and CodeQL workflows |
