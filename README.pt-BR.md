@@ -194,3 +194,30 @@ Preserve contratos de API claros, configuração externa de segredos, limites ex
 ## 18 · Licença e atribuição
 
 Consulte [LICENSE.txt](LICENSE.txt) para a licença MIT e seus termos aplicáveis.
+
+
+## Métricas de Engenharia
+
+<div align="center">
+  <img src="https://img.shields.io/github/stars/RMBarros-Dev/Api-Connect?style=flat-square&label=stars" alt="Estrelas no GitHub" />
+  <img src="https://img.shields.io/github/forks/RMBarros-Dev/Api-Connect?style=flat-square&label=forks" alt="Forks no GitHub" />
+  <img src="https://img.shields.io/github/issues/RMBarros-Dev/Api-Connect?style=flat-square&label=issues%20abertas" alt="Issues abertas" />
+  <img src="https://img.shields.io/badge/API-OpenAPI-6BA539?style=flat-square&logo=openapiinitiative&logoColor=white" alt="OpenAPI" />
+</div>
+
+<!-- REPOSITORY_METRICS_START -->
+_As métricas de linguagens serão geradas pelo GitHub Actions após a primeira execução bem-sucedida._
+<!-- REPOSITORY_METRICS_END -->
+
+### Verificação técnica
+
+| Dimensão | Evidência implementada | Limite da medição |
+|---|---|---|
+| Frente Node.js | JavaScript, Node.js 18+, Express 5 | Serviço HTTP independente; registros ficam em memória e são perdidos ao reiniciar. |
+| Frente .NET | C#, .NET 10, ASP.NET Core, Blazor Web e .NET Aspire | Frente de solução separada; não é um runtime híbrido compartilhado. |
+| Documentação de API | OpenAPI habilitado no ambiente de desenvolvimento .NET | Não implica contrato de API publicado em produção. |
+| Entrada / resposta | Limite do corpo JSON do Express e cabeçalho no-store documentados | Não substitui autenticação, autorização ou mitigação completa de ameaças. |
+| Testes automatizados | Este resumo não declara quantidade de testes ou percentual de cobertura | Verificar projetos de teste e etapas do workflow antes de declarar cobertura. |
+| CI | [Workflow de CI](.github/workflows/ci.yml) | Resultado atual indicado pelo badge acima. |
+| Análise estática de segurança | [Workflow CodeQL](.github/workflows/codeql.yml) | Execução do workflow não equivale a certificação de segurança. |
+| Limite de segurança | A frente Express não possui autenticação ou autorização | Uso demonstrativo; não expor como serviço de produção. |
