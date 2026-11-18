@@ -1,4 +1,4 @@
-<p align="right"><strong>Language:</strong> <a href="README.md">Português (Brasil)</a> · <a href="README.en.md">English</a></p>
+<p align="right"><strong>Language:</strong> <a href="README.pt-BR.md">Português (Brasil)</a> · <a href="README.md">English</a></p>
 
 <p align="center"><img src="assets/brand/banner.svg" alt="Api-Connect API architecture comparison lab" width="100%" /></p>
 <p align="center"><img src="assets/brand/logo.svg" alt="Api-Connect logo" width="76" /></p>
