@@ -206,7 +206,19 @@ Consulte [LICENSE.txt](LICENSE.txt) para a licença MIT e seus termos aplicávei
 </div>
 
 <!-- REPOSITORY_METRICS_START -->
-_As métricas de linguagens serão geradas pelo GitHub Actions após a primeira execução bem-sucedida._
+### Distribuição de linguagens (GitHub Linguist)
+
+![Distribuição de linguagens do repositório](assets/metrics/repository-languages.svg)
+
+| Linguagem | Bytes de código | Participação |
+|---|---:|---:|
+| JavaScript | 9,141 | 29.30% |
+| C# | 8,675 | 27.81% |
+| CSS | 7,754 | 24.85% |
+| HTML | 5,629 | 18.04% |
+
+_Total de bytes de código contabilizados: 31,199. Atualizado em: 2026-11-18 21:13 UTC._
+
 <!-- REPOSITORY_METRICS_END -->
 
 ### Verificação técnica
